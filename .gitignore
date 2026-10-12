@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Datasets and model checkpoints
+*.dcm
+*.pt
+*.pth
+*.zip
+
+# Temporary files
+*.log
+.DS_Store
+Thumbs.db
+
+# Kaggle working artifacts
+kaggle/
+runs/
