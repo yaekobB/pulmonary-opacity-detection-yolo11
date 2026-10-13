@@ -105,8 +105,6 @@ The near-identical mAP@0.50:0.95 values indicate **no meaningful aggregate accur
 
 The interval for small-opacity recall is above zero **under test-image resampling**, but these intervals do **not** capture variation from retraining with different seeds.
 
-![Bootstrap confidence intervals for recall](figures/size_analysis/recall_bootstrap_ci.png)
-
 ### False positives and efficiency
 
 | Metric | YOLO11s-640 | YOLO11s-800 | Change |
@@ -157,32 +155,12 @@ The initial public repository includes the notebook and selected research visual
 
 ### Environment
 
-The experiment was performed in a **Kaggle notebook** using Python, PyTorch, Ultralytics YOLO11, and scientific Python packages. The notebook installs Ultralytics with `%pip install -q ultralytics`.
-
-Exact dependency versions are **not pinned** in this repository; consequently, reproducing identical results may require reconstructing the original environment.
-
-### Review the completed study
-
-1. Open [`notebooks/object-detection-project-final.ipynb`](notebooks/object-detection-project-final.ipynb) to inspect the saved outputs and code.
-2. To rerun saved-results-based analyses in Kaggle, restore the corresponding CSV/JSON artifacts and training histories to the paths expected by the notebook under `/kaggle/working/rsna_pneumonia/results/`.
-3. Retain the default-off switches for expensive analysis steps where present:
-
-   ```python
-   RUN_TEST_EVALUATION = False
-   RUN_BOOTSTRAP = False
-   RUN_BENCHMARK = False
-   CREATE_RESEARCH_ARCHIVE = False
-   ```
-
-4. Run **only the intended analysis cells**, after checking their dependencies.
-
-**Do not select “Run All” indiscriminately.** The notebook includes active Phase 4 training calls; executing all cells can retrain the models. The public `figures/` directory alone does not provide the saved CSV/JSON inputs required to regenerate every analysis.
+The experiment was performed in a **Kaggle notebook** using Python, PyTorch, Ultralytics YOLO11, and scientific Python packages. 
+The notebook installs Ultralytics with `%pip install -q ultralytics`.
 
 ### Reproduce the full experiment
 
 To reproduce the complete workflow, obtain the RSNA Stage 2 dataset; perform the documented DICOM conversion, stratified splitting, and YOLO label preparation; train both configurations; evaluate the best checkpoints; and regenerate the per-image inference records, paired bootstrap analysis, and efficiency benchmarks.
-
-The cleaned notebook prioritizes inspection of saved results for some later phases. **The original inference-enabled workflow and archived intermediate artifacts are needed** to regenerate every upstream analysis file from scratch.
 
 ## Limitations
 
@@ -200,9 +178,6 @@ The cleaned notebook prioritizes inspection of saved results for some later phas
 - [Ultralytics YOLO11](https://docs.ultralytics.com/) — detection implementation.
 - [Kaggle](https://www.kaggle.com/) — computational notebook environment.
 
-## Citation and licensing
-
-If referring to this work, cite the repository and the original dataset and model resources as appropriate. A formal thesis citation, DOI, and repository-specific license have **not yet been assigned**. The RSNA dataset remains governed by its own terms.
 
 ---
 
